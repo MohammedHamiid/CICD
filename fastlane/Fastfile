@@ -3,14 +3,17 @@ default_platform(:ios)
 platform :ios do
   desc "Build and upload to TestFlight"
   lane :beta do
-    match(type: "appstore") # << دي مهمة جدًا!
-    
+    match(
+      type: "appstore",
+      git_url: "https://github.com/MohammedHamiid/ios-certificates.git"
+    )
+
     build_app(
       scheme: "CICD",
       export_method: "app-store",
       allowProvisioningUpdates: true
     )
-    
+
     upload_to_testflight
   end
 end
