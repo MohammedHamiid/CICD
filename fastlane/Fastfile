@@ -10,9 +10,9 @@ platform :ios do
 
     build_app(
       scheme: "CICD",
-      export_method: "app-store",
-      allowProvisioningUpdates: true
+      export_method: "app-store"
     )
+
 
     upload_to_testflight
   end
