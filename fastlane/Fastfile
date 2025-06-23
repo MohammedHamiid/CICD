@@ -3,13 +3,14 @@ default_platform(:ios)
 platform :ios do
   desc "Build and upload to TestFlight"
   lane :beta do
+    match(type: "appstore") # << دي مهمة جدًا!
+    
     build_app(
-      scheme: "CICD",         # اسم الـ scheme بتاعك في Xcode
-      export_method: "app-store"
+      scheme: "CICD",
+      export_method: "app-store",
+      allowProvisioningUpdates: true
     )
     
-    upload_to_testflight(
-      skip_waiting_for_build_processing: true
-    )
+    upload_to_testflight
   end
 end
