@@ -9,6 +9,11 @@ platform :ios do
       key_filepath: ENV["APP_STORE_CONNECT_API_KEY"]
     )
 
+    match(
+      type: "appstore",
+      git_url: "https://github.com/MohammedHamiid/ios-certificates.git",
+      api_key: api_key
+    )
 
     build_app(
       scheme: "CICD",
@@ -20,4 +25,3 @@ platform :ios do
     )
   end
 end
-
